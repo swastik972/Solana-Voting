@@ -13,7 +13,12 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 const App: React.FC = () => {
   const network = clusterApiUrl("devnet");
 
-  const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
+  const wallets = useMemo(
+    () => [
+      new PhantomWalletAdapter(),
+    ],
+    []
+  );
 
   return (
     <ConnectionProvider endpoint={network}>

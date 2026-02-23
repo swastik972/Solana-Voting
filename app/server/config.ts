@@ -10,7 +10,7 @@ export const config = {
   solanaNetwork: process.env.SOLANA_NETWORK || "devnet",
   solanaRpcUrl: process.env.SOLANA_RPC_URL || "https://api.devnet.solana.com",
   programId:
-    process.env.PROGRAM_ID || "VoTEaXrdRwKBMmvKEPKSjMSvnM1hR7GEXW9VnPQpjy7",
+    process.env.PROGRAM_ID || "65sD6MWQPZieeMfBrcbe2mgHpRkxosobzKgTCmnbqQqi",
   adminPrivateKey: process.env.ADMIN_PRIVATE_KEY || "",
 
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:3000",

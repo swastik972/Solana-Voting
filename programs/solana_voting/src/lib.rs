@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("VoTEaXrdRwKBMmvKEPKSjMSvnM1hR7GEXW9VnPQpjy7");
+declare_id!("65sD6MWQPZieeMfBrcbe2mgHpRkxosobzKgTCmnbqQqi");
 
 #[program]
 pub mod solana_voting {

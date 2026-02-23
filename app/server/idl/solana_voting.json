@@ -5,37 +5,93 @@
     {
       "name": "createPoll",
       "accounts": [
-        { "name": "poll", "isMut": true, "isSigner": false },
-        { "name": "admin", "isMut": true, "isSigner": true },
-        { "name": "systemProgram", "isMut": false, "isSigner": false }
+        {
+          "name": "poll",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
       ],
       "args": [
-        { "name": "pollId", "type": "u64" },
-        { "name": "title", "type": "string" },
-        { "name": "candidates", "type": { "vec": "string" } }
+        {
+          "name": "pollId",
+          "type": "u64"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "candidates",
+          "type": {
+            "vec": "string"
+          }
+        }
       ]
     },
     {
       "name": "vote",
       "accounts": [
-        { "name": "poll", "isMut": true, "isSigner": false },
-        { "name": "voteRecord", "isMut": true, "isSigner": false },
-        { "name": "voter", "isMut": true, "isSigner": true },
-        { "name": "systemProgram", "isMut": false, "isSigner": false }
+        {
+          "name": "poll",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "voteRecord",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "voter",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
       ],
       "args": [
-        { "name": "pollId", "type": "u64" },
-        { "name": "candidateIndex", "type": "u8" }
+        {
+          "name": "pollId",
+          "type": "u64"
+        },
+        {
+          "name": "candidateIndex",
+          "type": "u8"
+        }
       ]
     },
     {
       "name": "closePoll",
       "accounts": [
-        { "name": "poll", "isMut": true, "isSigner": false },
-        { "name": "admin", "isMut": true, "isSigner": true }
+        {
+          "name": "poll",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        }
       ],
       "args": [
-        { "name": "pollId", "type": "u64" }
+        {
+          "name": "pollId",
+          "type": "u64"
+        }
       ]
     }
   ],
@@ -45,13 +101,38 @@
       "type": {
         "kind": "struct",
         "fields": [
-          { "name": "admin", "type": "publicKey" },
-          { "name": "pollId", "type": "u64" },
-          { "name": "title", "type": "string" },
-          { "name": "candidates", "type": { "vec": { "defined": "Candidate" } } },
-          { "name": "totalVotes", "type": "u64" },
-          { "name": "isActive", "type": "bool" },
-          { "name": "bump", "type": "u8" }
+          {
+            "name": "admin",
+            "type": "publicKey"
+          },
+          {
+            "name": "pollId",
+            "type": "u64"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "candidates",
+            "type": {
+              "vec": {
+                "defined": "Candidate"
+              }
+            }
+          },
+          {
+            "name": "totalVotes",
+            "type": "u64"
+          },
+          {
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
         ]
       }
     },
@@ -60,10 +141,22 @@
       "type": {
         "kind": "struct",
         "fields": [
-          { "name": "voter", "type": "publicKey" },
-          { "name": "pollId", "type": "u64" },
-          { "name": "candidateIndex", "type": "u8" },
-          { "name": "bump", "type": "u8" }
+          {
+            "name": "voter",
+            "type": "publicKey"
+          },
+          {
+            "name": "pollId",
+            "type": "u64"
+          },
+          {
+            "name": "candidateIndex",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
         ]
       }
     }
@@ -74,21 +167,51 @@
       "type": {
         "kind": "struct",
         "fields": [
-          { "name": "name", "type": "string" },
-          { "name": "votes", "type": "u64" }
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "votes",
+            "type": "u64"
+          }
         ]
       }
     }
   ],
   "errors": [
-    { "code": 6000, "name": "TooFewCandidates", "msg": "Poll must have at least 2 candidates" },
-    { "code": 6001, "name": "TooManyCandidates", "msg": "Poll cannot have more than 10 candidates" },
-    { "code": 6002, "name": "TitleTooLong", "msg": "Title must be 100 characters or less" },
-    { "code": 6003, "name": "PollClosed", "msg": "This poll is closed" },
-    { "code": 6004, "name": "InvalidCandidate", "msg": "Invalid candidate index" },
-    { "code": 6005, "name": "Unauthorized", "msg": "Only the poll admin can perform this action" }
+    {
+      "code": 6000,
+      "name": "TooFewCandidates",
+      "msg": "Poll must have at least 2 candidates"
+    },
+    {
+      "code": 6001,
+      "name": "TooManyCandidates",
+      "msg": "Poll cannot have more than 10 candidates"
+    },
+    {
+      "code": 6002,
+      "name": "TitleTooLong",
+      "msg": "Title must be 100 characters or less"
+    },
+    {
+      "code": 6003,
+      "name": "PollClosed",
+      "msg": "This poll is closed"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidCandidate",
+      "msg": "Invalid candidate index"
+    },
+    {
+      "code": 6005,
+      "name": "Unauthorized",
+      "msg": "Only the poll admin can perform this action"
+    }
   ],
   "metadata": {
-    "address": ""
+    "address": "65sD6MWQPZieeMfBrcbe2mgHpRkxosobzKgTCmnbqQqi"
   }
 }

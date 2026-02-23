@@ -252,7 +252,26 @@ const VotingDApp: React.FC = () => {
       <div className="connect-prompt">
         <h2>Welcome to Solana Voting</h2>
         <p>Connect your Phantom wallet to create polls and cast votes</p>
-        <WalletMultiButton />
+        <div style={{ marginBottom: "1.5rem" }}>
+          <WalletMultiButton />
+        </div>
+
+        <div className="troubleshoot-box" style={{
+          fontSize: "0.85rem",
+          color: "var(--text-secondary)",
+          background: "rgba(255, 255, 255, 0.05)",
+          padding: "1rem",
+          borderRadius: "8px",
+          maxWidth: "400px",
+          margin: "0 auto"
+        }}>
+          <h4 style={{ marginBottom: "0.5rem", color: "var(--accent)" }}>🔍 Having trouble connecting?</h4>
+          <ul style={{ textAlign: "left", listStyleType: "none", padding: 0 }}>
+            <li>• Ensure Phantom is set to <strong>Devnet</strong> in Settings.</li>
+            <li>• Refresh the page if the popup doesn't appear.</li>
+            <li>• Try unlocking Phantom first before clicking connect.</li>
+          </ul>
+        </div>
       </div>
     );
   }
@@ -261,13 +280,13 @@ const VotingDApp: React.FC = () => {
 
   const maxVotes = currentPoll
     ? Math.max(
-        ...currentPoll.candidates.map((c) =>
-          typeof c.votes === "object" && "toNumber" in c.votes
-            ? c.votes.toNumber()
-            : Number(c.votes)
-        ),
-        1
-      )
+      ...currentPoll.candidates.map((c) =>
+        typeof c.votes === "object" && "toNumber" in c.votes
+          ? c.votes.toNumber()
+          : Number(c.votes)
+      ),
+      1
+    )
     : 1;
 
   return (
@@ -399,9 +418,8 @@ const VotingDApp: React.FC = () => {
                 </span>
               </div>
               <span
-                className={`poll-status ${
-                  currentPoll.isActive ? "active" : "closed"
-                }`}
+                className={`poll-status ${currentPoll.isActive ? "active" : "closed"
+                  }`}
               >
                 {currentPoll.isActive ? "Active" : "Closed"}
               </span>
@@ -419,7 +437,7 @@ const VotingDApp: React.FC = () => {
               {currentPoll.candidates.map((candidate, index) => {
                 const votes =
                   typeof candidate.votes === "object" &&
-                  "toNumber" in candidate.votes
+                    "toNumber" in candidate.votes
                     ? candidate.votes.toNumber()
                     : Number(candidate.votes);
                 const percentage = maxVotes > 0 ? (votes / maxVotes) * 100 : 0;
@@ -464,7 +482,7 @@ const VotingDApp: React.FC = () => {
             <div className="total-votes">
               Total votes: <strong>
                 {typeof currentPoll.totalVotes === "object" &&
-                "toNumber" in currentPoll.totalVotes
+                  "toNumber" in currentPoll.totalVotes
                   ? currentPoll.totalVotes.toNumber()
                   : Number(currentPoll.totalVotes)}
               </strong>

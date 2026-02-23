@@ -4,7 +4,7 @@ import idl from "../idl/solana_voting.json";
 
 // Program ID — must match declare_id! in lib.rs
 export const PROGRAM_ID = new PublicKey(
-  "VoTEaXrdRwKBMmvKEPKSjMSvnM1hR7GEXW9VnPQpjy7"
+  "65sD6MWQPZieeMfBrcbe2mgHpRkxosobzKgTCmnbqQqi"
 );
 
 export const NETWORK = clusterApiUrl("devnet");

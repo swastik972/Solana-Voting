@@ -252,9 +252,7 @@ const VotingDApp: React.FC = () => {
       <div className="connect-prompt">
         <h2>Welcome to Solana Voting</h2>
         <p>Connect your Phantom wallet to create polls and cast votes</p>
-        <div style={{ marginBottom: "1.5rem" }}>
-          <WalletMultiButton />
-        </div>
+        <WalletMultiButton />
 
         <div className="troubleshoot-box" style={{
           fontSize: "0.85rem",
@@ -263,7 +261,7 @@ const VotingDApp: React.FC = () => {
           padding: "1rem",
           borderRadius: "8px",
           maxWidth: "400px",
-          margin: "0 auto"
+          margin: "1.5rem auto 0"
         }}>
           <h4 style={{ marginBottom: "0.5rem", color: "var(--accent)" }}>🔍 Having trouble connecting?</h4>
           <ul style={{ textAlign: "left", listStyleType: "none", padding: 0 }}>

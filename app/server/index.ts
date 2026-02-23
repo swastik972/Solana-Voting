@@ -50,11 +50,18 @@ app.use(express.static(buildDir));
 
 // Any non-API route falls through to React's index.html
 app.get("*", (_req, res, next) => {
-  // Don't serve index.html for /api routes that weren't matched
-  if (_req.path.startsWith("/api")) {
-    return next();
-  }
-  res.sendFile(path.join(buildDir, "index.html"));
+  if (_req.path.startsWith("/api")) return next();
+
+  const indexHtml = path.join(buildDir, "index.html");
+  res.sendFile(indexHtml, (err) => {
+    if (err) {
+      if (config.nodeEnv === "development") {
+        res.status(404).send("Dev Mode: build/index.html not found. Use port 3000.");
+      } else {
+        res.status(404).send("Not Found");
+      }
+    }
+  });
 });
 
 // ─── 404 for unmatched /api routes ───────────────────────────────────────────
